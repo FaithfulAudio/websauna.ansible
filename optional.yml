@@ -26,7 +26,7 @@ htpasswd_password:
 new_relic_license_key:
 
 # SMTP server name for outboind email.
-smtp_server:
+smtp_server: smtp.mailgun.org:587
 
 # SMTP service username for outbound email. Your sign up email like ``mikko@example.com``. Keep this in Ansible vault.
 smtp_username:
