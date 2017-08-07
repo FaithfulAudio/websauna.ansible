@@ -1,8 +1,15 @@
 #
 # Websauna playbook requirements
 #
+# run venv/bin/ansible-galaxy install -r requirements.yml
+# after editing this file THEN run the 
+# venv/bin/ansible-playbook -i hosts.ini playbook-letsencrypt-kjvrvg.yml -K -v
+# command
+#
 
 - src: ANXS.postgresql
 - src: Stouts.nginx
 - src: Stouts.redis
 - src: Stouts.python
+- src: git+https://github.com/FaithfulAudio/ansible-letsencrypt.git
+  name: ansible-letsencrypt

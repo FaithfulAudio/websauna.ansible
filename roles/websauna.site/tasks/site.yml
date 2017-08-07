@@ -118,6 +118,29 @@
   become_user: wsgi
   command: "{{deploy_location}}/venv/bin/pip install -e {{deploy_location}}"
 
+# Copy letsencrypt key for our own use
+- name: Copy letsencrypt key for our own use
+  become: yes
+  become_user: root
+  shell: cp -L {{nginx_ssl_certificate_path_key}} {{websauna_conf_folder}}/privkey.pem
+
+- name: Change mode and group of letsencrypt key
+  become: yes
+  become_user: root
+  file: path="{{websauna_conf_folder}}/privkey.pem" group=wsgi owner=wsgi mode="u=rw,g=,o="
+
+# - name: Copy letsencrypt key for our own use
+#   become: yes
+#   become_user: root
+#   copy:
+#     src: "{{nginx_ssl_certificate_path_key}}"
+#     dest: "{{websauna_conf_folder}}/privkey.pem"
+#     follow: yes
+#     owner: wsgi
+#     group: wsgi
+#     mode: 0600
+  # when: file.stat.exists
+
 # Now run un-run migrations unconditionally regardless if we
 # are a prisitine or already running site
 - name: Run migrations after codebase update and for pristine sites
@@ -145,9 +168,3 @@
   become: yes
   become_user: root
   template: src={{ supervisor_config }} dest=/etc/supervisor/conf.d/site.conf
-
-
-
-
-
-
