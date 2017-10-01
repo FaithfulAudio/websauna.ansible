@@ -42,7 +42,7 @@
 #    - git_repository: git@github.com:websauna/myapp.git
     - git_repository: git@github.com:FaithfulAudio/kjvrvg-server.git
     # - git_repository: git@bitbucket.org:sidha/ccxact.git
-    - git_branch: gospel-mediagospel
+    - git_branch: fix-v1-api
     - site_mode: production
 
 #    - ini_secrets_file: ../myapp/myapp/conf/production-secrets.ini
