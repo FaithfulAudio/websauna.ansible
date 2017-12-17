@@ -106,6 +106,15 @@
   become_user: wsgi
   lineinfile: dest=/home/{{ wsgi_user }}/.profile regexp='^cd /srv' line='cd {{ deploy_location }}'
 
+# - name: update-locale LC_ALL
+#   action: command sudo update-locale LC_ALL=en_US.UTF-8
+
+- name: set default locale to UTF-8
+  sudo: yes
+  lineinfile: dest=/etc/default/locale
+    regexp="LC_ALL"
+    line="LC_ALL=\"en_US.UTF-8\""
+
 # We don't use Ansible pip module here becuase
 # https://github.com/ansible/ansible-modules-core/issues/2697
 - name: Install Python packages

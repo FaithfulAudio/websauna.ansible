@@ -11,6 +11,7 @@
   vars:
     - package_name: kjvrvg
     - site_id: kjvrvg
+    - company_name: faithfulaudio
 
     # Do we create Let's Encrypt HTTPS certificate for the site
     - letsenrypt: on
@@ -42,7 +43,7 @@
 #    - git_repository: git@github.com:websauna/myapp.git
     - git_repository: git@github.com:FaithfulAudio/kjvrvg-server.git
     # - git_repository: git@bitbucket.org:sidha/ccxact.git
-    - git_branch: fix-v1-api
+    - git_branch: all-scripture
     - site_mode: production
 
 #    - ini_secrets_file: ../myapp/myapp/conf/production-secrets.ini

@@ -11,6 +11,7 @@
   vars:
     - package_name: kjvrvg
     - site_id: kjvrvg
+    - company_name: faithfulaudio
 
     # Do we create Let's Encrypt HTTPS certificate for the site
     - letsenrypt: on
@@ -42,7 +43,7 @@
 #    - git_repository: git@github.com:websauna/myapp.git
     - git_repository: git@github.com:FaithfulAudio/kjvrvg-server.git
     # - git_repository: git@bitbucket.org:sidha/ccxact.git
-    - git_branch: add-gospel-language-id
+    - git_branch: all-scripture
     - site_mode: production
 
 #    - ini_secrets_file: ../myapp/myapp/conf/production-secrets.ini
@@ -67,8 +68,8 @@
     - letsencrypt_renewal_command_args: '--renew-hook "service nginx restart"'  # Ubuntu 14.04 nginx restart
     - nginx_ssl_certificate_path: "/etc/letsencrypt/live/{{ server_name }}/cert.pem"
     - nginx_ssl_certificate_path_key: "/etc/letsencrypt/live/{{ server_name }}/privkey.pem"
+    - nginx_ssl_certificate_chain_path: "/etc/letsencrypt/live/{{ server_name }}/chain.pem"
     - nginx_ssl_certificate_fullchain_path: "/etc/letsencrypt/live/{{ server_name }}/fullchain.pem"
-#    - nginx_ssl_certificate_chain_path: "/etc/letsencrypt/live/{{ server_name }}/chain.pem"
 
   pre_tasks:
 
