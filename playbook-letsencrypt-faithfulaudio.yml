@@ -9,7 +9,8 @@
 # - hosts: kjvrvg_development
   gather_facts: true
   vars:
-    - package_name: kjvrvg
+    - package_name: faithfulaudio.kjvrvg
+    - package_path: faithfulaudio/kjvrvg
     - site_id: kjvrvg
     - company_name: faithfulaudio
 

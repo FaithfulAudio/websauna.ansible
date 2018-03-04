@@ -9,7 +9,8 @@
 # - hosts: kjvrvg_development
   gather_facts: true
   vars:
-    - package_name: kjvrvg
+    - package_name: faithfulaudio.kjvrvg
+    - package_path: faithfulaudio/kjvrvg
     - site_id: kjvrvg
     - company_name: faithfulaudio
 
@@ -43,7 +44,7 @@
 #    - git_repository: git@github.com:websauna/myapp.git
     - git_repository: git@github.com:FaithfulAudio/kjvrvg-server.git
     # - git_repository: git@bitbucket.org:sidha/ccxact.git
-    - git_branch: all-scripture
+    - git_branch: websauna-big-upgrade
     - site_mode: production
 
 #    - ini_secrets_file: ../myapp/myapp/conf/production-secrets.ini
