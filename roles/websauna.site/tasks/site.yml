@@ -109,19 +109,24 @@
 # - name: update-locale LC_ALL
 #   action: command sudo update-locale LC_ALL=en_US.UTF-8
 
-- name: set default locale to UTF-8
-  sudo: yes
-  lineinfile: dest=/etc/default/locale
-    regexp="LC_ALL"
-    line="LC_ALL=\"en_US.UTF-8\""
+- name: Find out playbooks path
+  shell: pwd
+  register: playbook_path_output
+- debug: var=playbook_path_output.stdout
+
+# - name: set default locale to UTF-8
+#   sudo: yes
+#   lineinfile: dest=/etc/default/locale
+#     regexp="LC_ALL"
+#     line="LC_ALL=\"en_US.UTF-8\""
 
 # We don't use Ansible pip module here becuase
 # https://github.com/ansible/ansible-modules-core/issues/2697
 - name: Install Python packages
   become: yes
   become_user: wsgi
-  command: "{{deploy_location}}/venv/bin/pip install --no-input -r {{deploy_location}}/requirements.txt --index-url={{ pypi_index_url }}"
-
+  command: chdir="{{ deploy_location }}" "{{deploy_location}}/venv/bin/pip install --no-input -r {{deploy_location}}/requirements.txt --index-url={{ pypi_index_url }}"
+    
 - name: Install application package
   become: yes
   become_user: wsgi
